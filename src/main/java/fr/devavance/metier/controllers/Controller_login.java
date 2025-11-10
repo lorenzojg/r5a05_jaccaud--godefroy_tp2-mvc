@@ -44,7 +44,19 @@ public class Controller_login extends HttpServlet {
             out.println("</html>");
         }
     }
+    
+    private boolean is_connected(HttpServletRequest request){
+        return request.getAuthType() != null;
+    }
 
+    private void process_login_user(HttpServletRequest request, HttpServletResponse response) throws ServletException{
+        request.login(request.getAttribute("login").toString(), request.getAttribute("password").toString());
+    }
+    
+    private void verify_credential(String login, String password){
+        
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
